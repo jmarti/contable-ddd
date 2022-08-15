@@ -1,4 +1,4 @@
-export type CategoryId = string
+export type CategoryId = UniqueId
 export type CategoryName = string
 export enum CategoryType {
     Expense = "EXPENSE"

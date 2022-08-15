@@ -7,7 +7,7 @@ const expenses = [
         id: 'expense-1',
         description: 'Alquier',
         amount: 2900000,
-        date: new Date('2022-08-01'),
+        date: '2022-08-01',
         category: 'e1'
     }
 ]

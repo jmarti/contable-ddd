@@ -16,7 +16,7 @@ export default class ExpenseDataSourceImpl implements ExpenseDataSource {
             id: `expense-${i}`,
             description: item.description,
             amount: item.amount,
-            date: new Date(item.date),
+            date: item.date,
             category: item.categoryId
         }))
     }

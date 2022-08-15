@@ -1,14 +1,11 @@
 import { CategoryId } from "./Category"
 
-export type ExpenseId = string
 export type ExpenseDescription = string
-export type ExpenseAmount = number
-export type ExpenseDate = Date
 
 export interface Expense {
-    id: ExpenseId
+    id: UniqueId
     description: ExpenseDescription
-    amount: ExpenseAmount
-    date: ExpenseDate
+    amount: AmountCents
+    date: DateString
     category: CategoryId
 }
