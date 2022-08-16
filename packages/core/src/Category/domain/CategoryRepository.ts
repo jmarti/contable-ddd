@@ -1,4 +1,4 @@
-import { Category } from "../models/Category";
+import { Category } from "./Category"
 
 export interface CategoryRepository {
     getCategories(): Promise<Category[]>

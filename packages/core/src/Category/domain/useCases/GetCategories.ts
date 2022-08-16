@@ -1,15 +1,15 @@
-import { Category } from "../../models/Category";
-import { CategoryRepository } from "../../repositories/CategoryRepository";
+import { Category } from "../Category"
+import { CategoryRepository } from "../CategoryRepository"
 
 interface GetCategoriesUseCase {
-    invoke: () => Promise<Category[]>
+    execute: () => Promise<Category[]>
 }
 
 export class GetCategories implements GetCategoriesUseCase {
     
     constructor(private categoryRepo: CategoryRepository) { }
 
-    async invoke() {
+    async execute() {
         return this.categoryRepo.getCategories()
     }
 }

@@ -1,8 +1,9 @@
-import { Expense, NewExpense } from "../../../Domain/models/Expense"
-import ExpenseDataSource from "../ExpenseDataSource"
+import { Expense } from "Expense/domain/Expense"
+import { ExpenseRepository } from "Expense/domain/ExpenseRepository"
+import { NewExpense } from "Expense/domain/NewExpense"
 import { expenses, addExpense } from "./db"
 
-export default class ExpenseDataSourceImpl implements ExpenseDataSource {
+export default class ExpenseRepositoryImpl implements ExpenseRepository {
     async getExpenses(): Promise<Expense[]> {
         return expenses.map(item => ({
             id: item.id,

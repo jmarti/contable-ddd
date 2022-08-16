@@ -1,7 +1,7 @@
-import { CategoryId } from "./CategoryMockEntity"
+import { CategoryId } from "Category/data/Mock/CategoryEntity"
 
 
-export interface ExpenseMockEntity {
+export interface ExpenseEntity {
     id: UniqueId
     description: string
     amount: AmountCents
@@ -9,7 +9,7 @@ export interface ExpenseMockEntity {
     categoryId: CategoryId
 }
 
-export interface NewExpenseMockEntity {
+export interface NewExpenseEntity {
     description: string
     amount: AmountCents
     date: DateString

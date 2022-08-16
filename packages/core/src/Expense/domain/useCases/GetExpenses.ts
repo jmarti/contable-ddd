@@ -1,14 +1,15 @@
-import { Expense } from "../../models/Expense";
-import { ExpenseRepository } from "../../repositories/ExpenseRepository";
+import { Expense } from "../Expense"
+import { ExpenseRepository } from "../ExpenseRepository"
+
 
 interface GetExpensesUseCase {
-    invoke: () => Promise<Expense[]>
+    execute: () => Promise<Expense[]>
 }
 
 export class GetExpenses implements GetExpensesUseCase {
     constructor(private expenseRepository: ExpenseRepository) { }
 
-    async invoke() {
+    async execute() {
         return this.expenseRepository.getExpenses()
     }
 }

@@ -1,12 +1,8 @@
-import { CategoryId } from "./Category"
+import { CategoryId } from "Category/domain/Category"
 
 export interface NewExpense {
     description: string
     amount: AmountCents
     date: DateString
     category: CategoryId
-}
-
-export interface Expense extends NewExpense {
-    id: UniqueId
 }

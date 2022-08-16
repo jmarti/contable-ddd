@@ -1,6 +1,7 @@
+import { NewExpense } from '../../domain/NewExpense'
 import { describe, expect, test } from 'vitest'
-import { NewExpense } from '../../../Domain/models/Expense'
-import ExpenseDataSourceImpl from './ExpenseDataSourceImpl'
+
+import ExpenseDataSourceImpl from './ExpenseRepositoryImpl'
 
 const expenseDataSource = new ExpenseDataSourceImpl()
 
