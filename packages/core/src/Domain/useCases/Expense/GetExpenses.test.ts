@@ -1,37 +1,19 @@
-import { describe, expect, test } from 'vitest'
-import ExpenseDataSource from '../../../Data/DataSource/ExpenseDataSource'
+import { expect, test } from 'vitest'
+import ExpenseDataSourceImpl from '../../../Data/DataSource/Mock/ExpenseDataSourceImpl'
+import { ExpenseRepositoryImpl } from '../../../Data/Repository/ExpenseRepositoryImpl'
 import { GetExpenses } from './GetExpenses'
 
-const expenses = [
-    {
-        id: 'expense-1',
-        description: 'Alquier',
-        amount: 2900000,
-        date: '2022-08-01',
-        category: 'e1'
-    }
-]
 
-class ExpenseTestDataSourceImpl {
-    async getExpenses() {
-        return expenses
-    }
-}
-
-export class ExpenseTestRepositoryImpl {
-
-    constructor(public dataSource: ExpenseDataSource) { }
-
-    async getExpenses() {
-        return this.dataSource.getExpenses()
-    }
-}
-
-describe(`GetExpenses useCase:`, async () => {
-    const useCase = new GetExpenses(new ExpenseTestRepositoryImpl(new ExpenseTestDataSourceImpl()))
-
-    test(`Return expenses when calling invoke method.`, async () => {
-        const res = await useCase.invoke()
-        expect(res).toStrictEqual(expenses)
-    })
+const expenseAttributes = [ 'id', 'description', 'amount', 'date', 'category' ]
+    
+test(`returns a list of expenses with 'id', 'description, 'amount', 'date' and 'category' attributes.`, async () => {
+    const useCase = new GetExpenses(new ExpenseRepositoryImpl(new ExpenseDataSourceImpl()))
+    const expenses = await useCase.invoke()
+    expect(
+        expenses.some(expense =>
+            Object.keys(expense).some(attr =>
+                !expenseAttributes.includes(attr)
+            )
+        )
+    ).toBe(false)
 })

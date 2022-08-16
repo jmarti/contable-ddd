@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import { ExpenseRepositoryImpl } from './ExpenseRepositoryImpl'
 
 const expenses = [
@@ -18,7 +18,10 @@ class ExpenseTestDataSourceImpl {
 }
 
 
-test(`Getting expenses list via repo implementation.`, async () => {
+describe(`ExpenseRespository implementation`, () => {
+    // @ts-ignore
     const expenseRepo = new ExpenseRepositoryImpl(new ExpenseTestDataSourceImpl())
-    expect(await expenseRepo.getExpenses()).toBe(expenses)
+    test(`getting expenses list via repo implementation.`, async () => {
+        expect(await expenseRepo.getExpenses()).toBe(expenses)
+    })
 })

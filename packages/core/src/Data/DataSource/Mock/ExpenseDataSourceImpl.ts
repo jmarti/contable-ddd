@@ -1,23 +1,25 @@
-import { Expense } from "../../../Domain/models/Expense"
+import { Expense, NewExpense } from "../../../Domain/models/Expense"
 import ExpenseDataSource from "../ExpenseDataSource"
-
-const expenses = [
-    {
-        description: 'Alquier',
-        amount: 2900000,
-        date: '2022-08-01',
-        categoryId: 'e1'
-    }
-]
+import { expenses, addExpense } from "./db"
 
 export default class ExpenseDataSourceImpl implements ExpenseDataSource {
     async getExpenses(): Promise<Expense[]> {
-        return expenses.map((item, i) => ({
-            id: `expense-${i}`,
+        return expenses.map(item => ({
+            id: item.id,
             description: item.description,
             amount: item.amount,
             date: item.date,
             category: item.categoryId
         }))
+    }
+
+    async addExpense(newExpense: NewExpense): Promise<Expense> {
+        const newExpenseId = addExpense({
+            description: newExpense.description,
+            amount: newExpense.amount,
+            date: newExpense.date,
+            categoryId: newExpense.category
+        })
+        return (await this.getExpenses()).find(expense => expense.id === newExpenseId)!
     }
 }

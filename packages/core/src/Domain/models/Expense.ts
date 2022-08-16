@@ -1,11 +1,12 @@
 import { CategoryId } from "./Category"
 
-export type ExpenseDescription = string
-
-export interface Expense {
-    id: UniqueId
-    description: ExpenseDescription
+export interface NewExpense {
+    description: string
     amount: AmountCents
     date: DateString
     category: CategoryId
+}
+
+export interface Expense extends NewExpense {
+    id: UniqueId
 }
