@@ -1,7 +1,7 @@
 export type CategoryId = string
 export type CategoryName = string
 export enum CategoryType {
-    Expense = "EXPENSE"
+    Expense = 'EXPENSE'
 }
 
 export interface CategoryMockEntity {

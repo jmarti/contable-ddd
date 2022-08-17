@@ -1,7 +1,7 @@
-import { Expense } from "domain/Expense/Expense"
-import { ExpenseRepository } from "domain/Expense/ExpenseRepository"
-import { NewExpense } from "domain/Expense/NewExpense"
-import { expenses, addExpense } from "./db"
+import { Expense } from 'domain/Expense/Expense'
+import { ExpenseRepository } from 'domain/Expense/ExpenseRepository'
+import { NewExpense } from 'domain/Expense/NewExpense'
+import { expenses, addExpense } from './db'
 
 export default class ExpenseRepositoryImpl implements ExpenseRepository {
     async getExpenses(): Promise<Expense[]> {

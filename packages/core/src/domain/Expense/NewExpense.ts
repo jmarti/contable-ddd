@@ -1,4 +1,4 @@
-import { CategoryId } from "Category/domain/Category"
+import { CategoryId } from 'Category/domain/Category'
 
 export interface NewExpense {
     description: string

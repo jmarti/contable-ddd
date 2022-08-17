@@ -1,5 +1,5 @@
-import { Expense } from "../Expense"
-import { ExpenseRepository } from "../ExpenseRepository"
+import { Expense } from '../Expense'
+import { ExpenseRepository } from '../ExpenseRepository'
 
 
 interface GetExpensesUseCase {

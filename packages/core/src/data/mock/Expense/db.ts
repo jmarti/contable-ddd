@@ -1,4 +1,4 @@
-import { ExpenseEntity, NewExpenseEntity } from "./ExpenseEntity"
+import { ExpenseEntity, NewExpenseEntity } from './ExpenseEntity'
 
 let counter = 0
 

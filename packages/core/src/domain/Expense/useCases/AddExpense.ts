@@ -1,6 +1,6 @@
-import { Expense } from "../Expense"
-import { NewExpense } from "../NewExpense"
-import { ExpenseRepository } from "../ExpenseRepository"
+import { Expense } from '../Expense'
+import { NewExpense } from '../NewExpense'
+import { ExpenseRepository } from '../ExpenseRepository'
 
 interface AddExpenseUseCase {
     execute: (newExpense: NewExpense) => Promise<Expense>

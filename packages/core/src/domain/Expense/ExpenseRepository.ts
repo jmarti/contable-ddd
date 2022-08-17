@@ -1,5 +1,5 @@
-import { Expense } from "./Expense"
-import { NewExpense } from "./NewExpense"
+import { Expense } from './Expense'
+import { NewExpense } from './NewExpense'
 
 export interface ExpenseRepository {
     getExpenses(): Promise<Expense[]>
