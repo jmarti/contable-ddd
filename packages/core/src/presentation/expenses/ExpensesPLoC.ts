@@ -1,10 +1,15 @@
 // import { DataError } from 'domain/common/DataError'
+import { NewExpense } from 'domain/Expense/NewExpense'
+import { AddExpense } from 'domain/Expense/useCases/AddExpense'
 import { GetExpenses } from 'domain/Expense/useCases/GetExpenses'
 import { PLoC } from '../common/PLoC'
-import { expensesInitialState, ExpensesState } from './ExpensesState'
+import { expensesInitialState, ExpensesState, ExpensesStatus } from './ExpensesState'
 
 export default class ExpensesPLoC extends PLoC<ExpensesState> {
-    constructor(private getExpenses: GetExpenses) {
+    constructor(
+        private getExpenses: GetExpenses,
+        private addExpense: AddExpense
+    ) {
         super(expensesInitialState)
     }
 
@@ -12,21 +17,43 @@ export default class ExpensesPLoC extends PLoC<ExpensesState> {
         try {
             const expenses = await this.getExpenses.execute()
             this.changeState({
-                kind: "LoadedExpensesState",
+                status: ExpensesStatus.Loaded,
                 expenses
             })
         } catch(error) {
-            // this.changeState(this.handleError(error))
+            this.changeState(this.handleError('ListExpensesError', error))
         }
     }
 
-    // private handleError(error: DataError): ExpensesState {
-    //     switch(error.kind) {
-    //         case 'UnexpectedError':
-    //             return {
-    //                 kind: 'ErrorExpensesState',
-    //                 error: 'Sorry, an error has ocurred. Please try later again'
-    //             }
-    //     }
-    // }
+    async add(newExpense: NewExpense) {
+        try {
+            await this.addExpense.execute(newExpense)
+            await this.list()
+        } catch(error) {
+            this.changeState(this.handleError('NewExpenseError', error))
+        }
+    }
+
+    private handleError(errorType: string, error: any): ExpensesState {
+        switch(errorType) {
+            case 'NewExpenseError':
+                return {
+                    status: ExpensesStatus.Error,
+                    message: `New Expense could not be added.`,
+                    error
+                }
+            case 'ListExpensesError':
+                return {
+                    status: ExpensesStatus.Error,
+                    message: `Expenses list could not be retrieved.`,
+                    error
+                }
+            default:
+                return {
+                    status: ExpensesStatus.Error,
+                    message: `Unexpected Error.`,
+                    error
+                }
+        }
+    }
 }

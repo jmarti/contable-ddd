@@ -3,6 +3,8 @@ import { ExpenseRepository } from 'domain/Expense/ExpenseRepository'
 import { NewExpense } from 'domain/Expense/NewExpense'
 import { expenses, addExpense } from './db'
 
+const REQUIRED_NEW_EXPENSE_PROPS = ['description', 'amount', 'date', 'category']
+
 export default class ExpenseRepositoryImpl implements ExpenseRepository {
     async getExpenses(): Promise<Expense[]> {
         return expenses.map(item => ({
@@ -15,6 +17,8 @@ export default class ExpenseRepositoryImpl implements ExpenseRepository {
     }
 
     async addExpense(newExpense: NewExpense): Promise<Expense> {
+        this.checkNewExpense(newExpense)
+
         const newExpenseId = addExpense({
             description: newExpense.description,
             amount: newExpense.amount,
@@ -22,5 +26,11 @@ export default class ExpenseRepositoryImpl implements ExpenseRepository {
             categoryId: newExpense.category
         })
         return (await this.getExpenses()).find(expense => expense.id === newExpenseId)!
+    }
+
+    private checkNewExpense(newExpense: any) {
+        const missingProps = REQUIRED_NEW_EXPENSE_PROPS.filter(prop => !newExpense.hasOwnProperty(prop))
+
+        if (missingProps.length) throw new Error(`[${missingProps.join(', ')}] are required.`)
     }
 }
