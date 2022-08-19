@@ -4,8 +4,8 @@ export enum CategoryType {
     Expense = 'EXPENSE'
 }
 
-export interface CategoryMockEntity {
+export interface CategoryEntity {
     id: CategoryId
     name: CategoryName,
-    type: CategoryType
+    type: CategoryType.Expense
 }
