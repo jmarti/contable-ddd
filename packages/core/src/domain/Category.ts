@@ -4,8 +4,7 @@ export enum CategoryType {
     Expense = 'EXPENSE'
 }
 
-export interface Category {
-    id: CategoryId
-    name: CategoryName,
-    type: CategoryType
+export class Category {
+    constructor(public id: CategoryId, public name: CategoryName, public type: CategoryType) {
+    }
 }
