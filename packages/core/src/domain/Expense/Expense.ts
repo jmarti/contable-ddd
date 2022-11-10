@@ -1,5 +1,5 @@
-import { NewExpense } from './NewExpense'
+import { ExpenseBase } from './ExpenseBase'
 
-export interface Expense extends NewExpense {
+export interface Expense extends ExpenseBase {
     id: UniqueId
 }

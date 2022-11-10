@@ -1,8 +1,3 @@
-import { CategoryId } from 'Category/domain/Category'
+import { ExpenseBase } from './ExpenseBase'
 
-export interface NewExpense {
-    description: string
-    amount: AmountCents
-    date: DateString
-    category: CategoryId
-}
+export interface NewExpense extends ExpenseBase { }
