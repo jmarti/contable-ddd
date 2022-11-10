@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import ExpenseRepositoryImpl from '../../../data/mock/Expense/ExpenseRepositoryImpl'
+import ExpenseRepositoryImpl from '../data/mock/Expense/ExpenseRepositoryImpl'
 import { GetExpenses } from './GetExpenses'
 
 

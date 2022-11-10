@@ -1,4 +1,4 @@
-import { Expense } from 'domain/Expense/Expense'
+import { Expense } from 'domain/Expense'
 
 export enum ExpensesStatus {
     Loading = 'LoadingExpenses',

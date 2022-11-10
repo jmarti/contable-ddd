@@ -1,5 +1,5 @@
-import { Category } from '../Category'
-import { CategoryRepository } from '../CategoryRepository'
+import { Category } from '../domain/Category'
+import { CategoryRepository } from '../domain/CategoryRepository'
 
 interface GetCategoriesUseCase {
     execute: () => Promise<Category[]>

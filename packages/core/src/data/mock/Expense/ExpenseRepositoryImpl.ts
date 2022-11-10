@@ -1,6 +1,6 @@
-import { Expense } from 'domain/Expense/Expense'
-import { ExpenseRepository } from 'domain/Expense/ExpenseRepository'
-import { NewExpense } from 'domain/Expense/NewExpense'
+import { Expense } from 'domain/Expense'
+import { ExpenseRepository } from 'domain/ExpenseRepository'
+import { NewExpense } from 'domain/NewExpense'
 import { expenses, addExpense } from './db'
 
 const REQUIRED_NEW_EXPENSE_PROPS = ['description', 'amount', 'date', 'category']

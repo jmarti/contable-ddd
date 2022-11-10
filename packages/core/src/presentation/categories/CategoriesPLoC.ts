@@ -1,4 +1,4 @@
-import { GetCategories } from 'domain/Category/useCases/GetCategories'
+import { GetCategories } from 'useCases/GetCategories'
 import { PLoC } from '../common/PLoC'
 import { CategoriesInitialState, CategoriesState, CategoriesStatus } from './CategoriesState'
 

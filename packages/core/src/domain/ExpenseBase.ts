@@ -1,4 +1,4 @@
-import { CategoryId } from 'domain/Category/Category'
+import { CategoryId } from 'domain/Category'
 
 export interface ExpenseBase {
     description: string

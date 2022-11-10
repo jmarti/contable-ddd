@@ -1,7 +1,7 @@
 // import { DataError } from 'domain/common/DataError'
-import { NewExpense } from 'domain/Expense/NewExpense'
-import { AddExpense } from 'domain/Expense/useCases/AddExpense'
-import { GetExpenses } from 'domain/Expense/useCases/GetExpenses'
+import { NewExpense } from 'domain/NewExpense'
+import { AddExpense } from 'useCases/AddExpense'
+import { GetExpenses } from 'useCases/GetExpenses'
 import { PLoC } from '../common/PLoC'
 import { expensesInitialState, ExpensesState, ExpensesStatus } from './ExpensesState'
 

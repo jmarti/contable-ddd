@@ -1,4 +1,4 @@
-import { NewExpense } from 'domain/Expense/NewExpense'
+import { NewExpense } from 'domain/NewExpense'
 import { describe, expect, test } from 'vitest'
 
 import ExpenseDataSourceImpl from './ExpenseRepositoryImpl'

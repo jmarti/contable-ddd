@@ -1,4 +1,4 @@
-import { Category } from 'domain/Category/Category'
+import { Category } from 'domain/Category'
 
 export enum CategoriesStatus {
     Loading = 'LoadingCategories',
