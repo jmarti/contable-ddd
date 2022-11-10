@@ -1,4 +1,4 @@
-import { CategoryId } from 'data/mock/Category/CategoryEntity'
+import { CategoryId } from 'infrastructure/mock/Category/CategoryEntity'
 
 export interface NewExpenseEntity {
     description: string

@@ -1,4 +1,4 @@
-import ExpenseRepositoryImpl from '../../data/mock/Expense/ExpenseRepositoryImpl'
+import ExpenseRepositoryImpl from '../../infrastructure/mock/Expense/ExpenseRepositoryImpl'
 import { GetExpenses } from '../../useCases/GetExpenses'
 import { AddExpense } from '../../useCases/AddExpense'
 import { describe, expect, test } from 'vitest'

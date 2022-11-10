@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import CategoryRepositoryImpl from '../../data/mock/Category/CategoryRepositoryImpl'
+import CategoryRepositoryImpl from '../../infrastructure/mock/Category/CategoryRepositoryImpl'
 import { GetCategories } from '../../useCases/GetCategories'
 import { CategoriesPLoC } from './CategoriesPLoC'
 import { CategoriesStatus } from './CategoriesState'
