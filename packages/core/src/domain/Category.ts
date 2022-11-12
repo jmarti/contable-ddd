@@ -5,6 +5,5 @@ export enum CategoryType {
 }
 
 export class Category {
-    constructor(public id: CategoryId, public name: CategoryName, public type: CategoryType) {
-    }
+    constructor(public id: CategoryId, public name: CategoryName, public type: CategoryType) { }
 }

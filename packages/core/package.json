@@ -14,5 +14,8 @@
     "vite": "^3.0.7",
     "vitest": "^0.21.1"
   },
-  "author": "Jordi Martí"
+  "author": "Jordi Martí",
+  "dependencies": {
+    "vite-tsconfig-paths": "^3.5.2"
+  }
 }

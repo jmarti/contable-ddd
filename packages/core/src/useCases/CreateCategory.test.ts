@@ -1,7 +1,7 @@
-import { Category, CategoryType } from '../domain/Category'
 import { expect, test } from 'vitest'
+import { Category, CategoryType } from 'domain/Category'
+import { InMemoryCategoryRepository } from 'infrastructure/mock/InMemoryCategoryRepository'
 import { CreateCategory } from './CreateCategory'
-import { InMemoryCategoryRepository } from '../infrastructure/mock/InMemoryCategoryRepository'
 
 test(`saves the new category`, async () => {
     const repo = new InMemoryCategoryRepository()

@@ -1,19 +1,20 @@
 import { expect, test } from 'vitest'
-import ExpenseRepositoryImpl from '../infrastructure/mock/Expense/ExpenseRepositoryImpl'
-import { NewExpense } from '../domain/NewExpense'
+import { Expense } from 'domain/Expense'
+import { InMemoryExpenseRepository } from 'infrastructure/mock/InMemoryExpenseRepository'
 import { AddExpense } from './AddExpense'
 
-
-test(`returns the the same new expense with and 'id'.`, async () => {
-    const newExpense: NewExpense = {
-        description: 'New expense description',
+test(`adds the new expense`, async () => {
+    const repo = new InMemoryExpenseRepository()
+    const useCase = new AddExpense(repo)
+    const theExpense: Expense = {
+        id: '1',
+        description: 'Expense description',
         amount: 10,
-        date: '2000-01-01',
-        category: 'c1'
+        date: '2022-01-01',
+        category: '1'
     }
-    const useCase = new AddExpense(new ExpenseRepositoryImpl())
     
-    const returnedExpense = await useCase.execute(newExpense)
+    useCase.execute(theExpense)
 
-    expect(returnedExpense).toStrictEqual({ ...newExpense, id: returnedExpense.id })
+    expect(await repo.list()).toStrictEqual([theExpense])
 })
