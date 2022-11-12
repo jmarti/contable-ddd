@@ -3,13 +3,13 @@ import { PLoC } from '../common/PLoC'
 import { CategoriesInitialState, CategoriesState, CategoriesStatus } from './CategoriesState'
 
 export class CategoriesPLoC extends PLoC<CategoriesState> {
-    constructor(private getCategories: GetCategories) {
+    constructor(private list: GetCategories) {
         super(CategoriesInitialState)
     }
 
     async list() {
         try {
-            const categories = await this.getCategories.execute()
+            const categories = await this.list.execute()
             this.changeState({
                 status: CategoriesStatus.Loaded,
                 categories

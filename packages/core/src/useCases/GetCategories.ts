@@ -10,6 +10,6 @@ export class GetCategories implements GetCategoriesUseCase {
     constructor(private categoryRepo: CategoryRepository) { }
 
     async execute() {
-        return this.categoryRepo.getCategories()
+        return this.categoryRepo.list()
     }
 }

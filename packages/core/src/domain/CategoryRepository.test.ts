@@ -10,6 +10,6 @@ describe.each([
         
         repo.save(theCategory)
 
-        expect(await repo.getCategories()).toEqual([theCategory]) // WRN: Esto solo sirve para la implementación del InMemoryCategoryRepository
+        expect(await repo.list()).toEqual([theCategory]) // WRN: Esto solo sirve para la implementación del InMemoryCategoryRepository
     })
 })

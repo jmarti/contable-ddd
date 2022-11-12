@@ -9,7 +9,7 @@ test(`saves the new category`, async () => {
 
     await createCategory.execute('1', 'Food', CategoryType.Expense)
     
-    expect(await repo.getCategories()).toEqual([
+    expect(await repo.list()).toEqual([
         new Category('1', 'Food', CategoryType.Expense)
     ])
 })
@@ -27,7 +27,7 @@ test(`can't duplicate a category with the same name and type`, async () => {
     }
 
     await expect(createSameCategory).rejects.toThrow('The category already exist.')
-    expect(await repo.getCategories()).toEqual([
+    expect(await repo.list()).toEqual([
         new Category(theCategory.id, theCategory.name, theCategory.type)
     ])
 })

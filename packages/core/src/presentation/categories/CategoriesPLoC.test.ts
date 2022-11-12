@@ -7,7 +7,7 @@ import { CategoriesStatus } from './CategoriesState'
 const mockDataRepo = new CategoryRepositoryImpl()
 const categoriesPLoC = new CategoriesPLoC(new GetCategories(mockDataRepo))
 
-describe(`statues`, () => {
+describe.skip(`statues`, () => {
     test(`'loading' at init`, () => {
         let status
         const listener = (s: any) => status = s.status
