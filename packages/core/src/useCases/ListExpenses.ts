@@ -2,14 +2,14 @@ import { Expense } from '../domain/Expense'
 import { ExpenseRepository } from '../domain/ExpenseRepository'
 
 
-interface GetExpensesUseCase {
+interface ListExpensesUseCase {
     execute: () => Promise<Expense[]>
 }
 
-export class GetExpenses implements GetExpensesUseCase {
+export class ListExpenses implements ListExpensesUseCase {
     constructor(private expenseRepository: ExpenseRepository) { }
 
     async execute() {
-        return this.expenseRepository.getExpenses()
+        return this.expenseRepository.list()
     }
 }

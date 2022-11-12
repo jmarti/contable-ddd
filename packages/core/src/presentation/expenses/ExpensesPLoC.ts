@@ -1,13 +1,13 @@
 // import { DataError } from 'domain/common/DataError'
 import { NewExpense } from 'domain/NewExpense'
 import { AddExpense } from 'useCases/AddExpense'
-import { GetExpenses } from 'useCases/GetExpenses'
+import { ListExpenses } from 'useCases/ListExpenses'
 import { PLoC } from '../common/PLoC'
 import { expensesInitialState, ExpensesState, ExpensesStatus } from './ExpensesState'
 
 export default class ExpensesPLoC extends PLoC<ExpensesState> {
     constructor(
-        private getExpenses: GetExpenses,
+        private getExpenses: ListExpenses,
         private addExpense: AddExpense
     ) {
         super(expensesInitialState)

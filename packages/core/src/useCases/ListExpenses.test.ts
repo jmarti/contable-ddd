@@ -1,20 +1,21 @@
 import { expect, test } from 'vitest'
 import { Expense } from 'domain/Expense'
 import { InMemoryExpenseRepository } from 'infrastructure/mock/InMemoryExpenseRepository'
-import { AddExpense } from './AddExpense'
+import { ListExpenses } from './ListExpenses'
 
-test(`adds the new expense`, async () => {
+test(`list the expenses.`, async () => {
     const repo = new InMemoryExpenseRepository()
-    const addExpense = new AddExpense(repo)
-    const theExpense: Expense = {
+    const getExpenses = new ListExpenses(repo)
+    const anyExpense: Expense = {
         id: '1',
         description: 'Expense description',
         amount: 10,
         date: '2022-01-01',
         category: '1'
     }
+    repo.add(anyExpense)
     
-    addExpense.execute(theExpense)
-
-    expect(await repo.list()).toStrictEqual([theExpense])
+    const expenses = await getExpenses.execute()
+    
+    expect(expenses).toStrictEqual([anyExpense])
 })
