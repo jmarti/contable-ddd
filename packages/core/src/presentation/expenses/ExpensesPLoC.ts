@@ -1,5 +1,5 @@
 // import { DataError } from 'domain/common/DataError'
-import { NewExpense } from 'domain/NewExpense'
+import { Expense } from 'domain/Expense'
 import { AddExpense } from 'useCases/AddExpense'
 import { ListExpenses } from 'useCases/ListExpenses'
 import { PLoC } from '../common/PLoC'
@@ -7,7 +7,7 @@ import { expensesInitialState, ExpensesState, ExpensesStatus } from './ExpensesS
 
 export default class ExpensesPLoC extends PLoC<ExpensesState> {
     constructor(
-        private getExpenses: ListExpenses,
+        private listExpenses: ListExpenses,
         private addExpense: AddExpense
     ) {
         super(expensesInitialState)
@@ -15,7 +15,7 @@ export default class ExpensesPLoC extends PLoC<ExpensesState> {
 
     async list() {
         try {
-            const expenses = await this.getExpenses.execute()
+            const expenses = await this.listExpenses.execute()
             this.changeState({
                 status: ExpensesStatus.Loaded,
                 expenses
@@ -25,9 +25,9 @@ export default class ExpensesPLoC extends PLoC<ExpensesState> {
         }
     }
 
-    async add(newExpense: NewExpense) {
+    async add(newExpense: Expense) {
         try {
-            await this.addExpense.execute(newExpense)
+            await this.addExpense.execute(newExpense.id, newExpense.description, newExpense.amount, newExpense.date, newExpense.category)
             await this.list()
         } catch(error) {
             this.changeState(this.handleError('NewExpenseError', error))

@@ -1,15 +1,15 @@
-import { GetCategories } from 'useCases/GetCategories'
-import { PLoC } from '../common/PLoC'
+import { ListCategories } from 'useCases/ListCategories'
+import { PLoC } from 'presentation/common/PLoC'
 import { CategoriesInitialState, CategoriesState, CategoriesStatus } from './CategoriesState'
 
 export class CategoriesPLoC extends PLoC<CategoriesState> {
-    constructor(private list: GetCategories) {
+    constructor(private listCategories: ListCategories) {
         super(CategoriesInitialState)
     }
 
     async list() {
         try {
-            const categories = await this.list.execute()
+            const categories = await this.listCategories.execute()
             this.changeState({
                 status: CategoriesStatus.Loaded,
                 categories
