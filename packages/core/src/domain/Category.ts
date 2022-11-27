@@ -1,7 +1,8 @@
 export type CategoryId = UniqueId
 export type CategoryName = string
 export enum CategoryType {
-    Expense = 'EXPENSE'
+    Expense = 'EXPENSE',
+    Income = 'INCOME'
 }
 
 export class Category {
