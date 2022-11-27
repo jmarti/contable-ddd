@@ -3,7 +3,7 @@ import { Expense } from 'domain/Expense'
 import { InMemoryExpenseRepository } from 'infrastructure/mock/InMemoryExpenseRepository'
 import { ListExpenses } from './ListExpenses'
 
-test(`list the expenses.`, async () => {
+test(`list expenses`, async () => {
     const repo = new InMemoryExpenseRepository()
     const getExpenses = new ListExpenses(repo)
     const anyExpense: Expense = {

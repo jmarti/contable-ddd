@@ -1,6 +1,6 @@
 import { AppError } from 'domain/AppError'
 import { Income } from 'domain/Income'
-import { IncomeRepository } from '../domain/IncomeRepository'
+import { IncomeRepository } from 'domain/IncomeRepository'
 
 export class AddIncome {
     constructor(private incomeRepository: IncomeRepository) { }

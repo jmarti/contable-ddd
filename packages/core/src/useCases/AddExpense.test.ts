@@ -34,7 +34,7 @@ test(`adds the new expense`, async () => {
 })
 
 
-test(`can't add a category with the same id`, async () => {
+test(`can't add an expense with the same id`, async () => {
     const repo = new InMemoryExpenseRepository()
     const addExpense = new AddExpense(repo)
     const theExpenseRepeatedData = { id: '1' }

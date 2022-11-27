@@ -1,6 +1,6 @@
 import { AppError } from 'domain/AppError'
 import { Expense } from 'domain/Expense'
-import { ExpenseRepository } from '../domain/ExpenseRepository'
+import { ExpenseRepository } from 'domain/ExpenseRepository'
 
 export class AddExpense {
     constructor(private expenseRepository: ExpenseRepository) { }

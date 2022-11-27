@@ -34,7 +34,7 @@ test(`adds the new income`, async () => {
 })
 
 
-test(`can't add a category with the same id`, async () => {
+test(`can't add an income with the same id`, async () => {
     const repo = new InMemoryIncomeRepository()
     const addIncome = new AddIncome(repo)
     const theIncomeRepeatedData = { id: '1' }

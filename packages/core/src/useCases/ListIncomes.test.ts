@@ -3,7 +3,7 @@ import { Income } from 'domain/Income'
 import { InMemoryIncomeRepository } from 'infrastructure/mock/InMemoryIncomeRepository'
 import { ListIncomes } from './ListIncomes'
 
-test(`list the incomes.`, async () => {
+test(`list incomes`, async () => {
     const repo = new InMemoryIncomeRepository()
     const getIncomes = new ListIncomes(repo)
     const anyIncome: Income = {

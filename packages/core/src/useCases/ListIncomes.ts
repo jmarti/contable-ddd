@@ -1,5 +1,5 @@
-import { Income } from '../domain/Income'
-import { IncomeRepository } from '../domain/IncomeRepository'
+import { Income } from 'domain/Income'
+import { IncomeRepository } from 'domain/IncomeRepository'
 
 
 interface ListIncomesUseCase {
