@@ -32,3 +32,45 @@ export const expensesInitialState: ExpensesState = {
     status: ExpensesStatus.Loading,
     // searchTerm: ''
 }
+
+export interface MyError {
+    error: Error,
+    message: string
+}
+
+export class MyExpensesState {
+    loading: boolean;
+    expenses: Expense[];
+    message?: string;
+    error?: MyError;
+    listener?: (state: MyExpensesState) => void;
+
+    constructor() {
+        this.loading = true;
+        this.expenses = [];
+        this.message = undefined;
+        this.error = undefined;
+    }
+
+    setError(error: MyError, message: string) {
+        this.error = error;
+        this.message = message;
+        this.loading = false;
+        this.notifyListeners();
+    }
+
+    addExpense(expense: string) {
+        this.expenses.push(Expense.create(expense, 1));
+        this.notifyListeners();
+    }
+
+    subscribe(listener: (state: MyExpensesState) => void): void {
+        this.listener = listener;
+    }
+
+    private notifyListeners(): void {
+        if (this.listener) {
+            this.listener(this);
+        }
+    }
+}
